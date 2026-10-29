@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LedgerLink — Bank CSV to QIF / OFX / QBO, Re-Checked</title>
+<meta name="description" content="Convert bank CSV exports to QIF, OFX and QBO offline — every output re-read and proven: counts, totals and FITIDs must match. $29 one-time.">
+<style>
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;color:#1c2530;background:#f7f9fb;line-height:1.6}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:2rem;line-height:1.2;margin:.2em 0}
+  h2{margin-top:1.6em}
+  .sub{font-size:1.15rem;color:#43536a}
+  .cta{display:inline-block;background:#0f7b4d;color:#fff;padding:14px 26px;border-radius:8px;text-decoration:none;font-weight:600;margin:18px 0}
+  .card{background:#fff;border:1px solid #dde4ec;border-radius:10px;padding:18px 22px;margin:16px 0}
+  code{background:#eef2f6;padding:1px 6px;border-radius:4px}
+  ul{padding-left:1.2em}
+  .fine{color:#5a6a7f;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="fine">LEDGERLINK · WINDOWS · ONE-TIME $29</p>
+  <h1>Your bank gives you CSV.<br>Your accounting software wants QIF, OFX or QBO.</h1>
+  <p class="sub">LedgerLink converts bank and card CSV exports into QIF, OFX 1.02 and QBO — then re-reads every file it wrote and proves the transaction count, the net total and the transaction IDs match your source. Fully offline: your transactions never leave your machine.</p>
+  <a class="cta" href="https://binbinster.gumroad.com/l/ledgerlink-bank-csv-to-qif-ofx-qbo">Get LedgerLink on Gumroad — $29</a>
+
+  <div class="card">
+    <h2>What it handles</h2>
+    <ul>
+      <li>Delimiter sniffing and header-synonym column mapping (date, amount, debit/credit, payee, memo, cheque no., category)</li>
+      <li><code>(4.50)</code> bracket negatives, thousands separators, comma decimals, split Debit/Credit columns</li>
+      <li>Credit-card exports: one sign-flip switch</li>
+      <li>All three formats in one pass — QIF, OFX, QBO (with Intuit bank id)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>The re-check (why this exists)</h2>
+    <p>Every written file is parsed back independently. Count, net total and FITID uniqueness must match the source CSV — otherwise the report says FAIL, in writing. Duplicates are removed <em>and listed</em>; unparseable rows are rejected <em>with reasons</em>; ambiguous dates like 03/04/2026 are flagged, never silently guessed. Rows in always equals converted + duplicates + rejected.</p>
+  </div>
+
+  <h2>Measured, not promised</h2>
+  <p>Seeded acceptance test: 15/15 checks passed. An 8-row CSV with a planted duplicate, a broken date and two ambiguous dates converted to exactly 6 transactions with net 2295.71 — matched to the cent on re-read in both QIF and OFX. Two runs of the same input produce byte-identical output.</p>
+
+  <h2>Honest limits</h2>
+  <ul>
+    <li>Dates default to month-first (US); a day-first toggle is included and ambiguous dates are always flagged</li>
+    <li>CSV sources only — PDF statements are the sibling tool, StatementSift</li>
+    <li>OFX 1.02 is written (what current desktop tools import); OFX 2.x XML is not</li>
+  </ul>
+
+  <a class="cta" href="https://binbinster.gumroad.com/l/ledgerlink-bank-csv-to-qif-ofx-qbo">Buy once, convert forever — $29</a>
+  <p class="fine">Windows desktop app. No subscription, no account, no upload. Sample CSV included.</p>
+</div>
+</body>
+</html>
